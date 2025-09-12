@@ -7,12 +7,14 @@ function productCardTemplate(product) {
       <a href="../product_pages/index.html?product=${product.Id}">
         <img src="${product.Image}" alt="${product.Name}" />
         <h2>${product.Name}</h2>
-        <p>${product.Description}</p>
+        <p>${product.DescriptionHtmlSimple}</p>
         <p class="price">$${product.FinalPrice}</p>
       </a>
+      <button class="add-to-cart" data-id="${product.Id}">Add to Cart</button>
     </li>
   `;
 }
+
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {

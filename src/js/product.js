@@ -9,13 +9,23 @@ function addProductToCart(product) {
   setLocalStorage("so-cart", cartItems);
 }
 
-// add to cart button event handler
+// event handler
 async function addToCartHandler(e) {
-  const product = await dataSource.findProductById(e.target.dataset.id);
-  addProductToCart(product);
+  // only run if the clicked element is a button with .add-to-cart
+  if (e.target && e.target.classList.contains("add-to-cart")) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const productId = e.target.dataset.id;
+    const product = await dataSource.findProductById(productId);
+    addProductToCart(product);
+  }
 }
 
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
+// set up event delegation
+document.addEventListener("DOMContentLoaded", () => {
+  const productList = document.querySelector(".product-list"); // parent container of all product cards
+  if (productList) {
+    productList.addEventListener("click", addToCartHandler);
+  }
+});
