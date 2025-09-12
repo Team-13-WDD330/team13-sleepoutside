@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0a8dcb8b-4174-477a-af6b-c98f7ec4968c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src_new/.env.sample" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/cart/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/checkout/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/js/ProductData.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/js/ProductList.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/js/cart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/js/product.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/js/utils.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/product_pages/cedar-ridge-rimrock-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/product_pages/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/product_pages/marmot-ajax-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/product_pages/northface-alpine-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/product_pages/northface-talus-4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/images/banner-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/images/banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/images/logos/marmot-160x100.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/images/noun_Backpack_2389275.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/images/noun_Backpack_65884.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/images/noun_Tent_2517.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/images/tents/cedar-ridge-rimrock-tent-2-person-3-season-in-rust-clay~p~344yj_01~320.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/images/tents/the-north-face-alpine-guide-tent-3-person-4-season-in-canary-yellow-high-rise-grey~p~985pr_01~320.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/images/tents/the-north-face-talus-tent-4-person-3-season-in-golden-oak-saffron-yellow~p~985rf_01~320.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/json/backpacks.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/json/sleeping-bags.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/public/json/tents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_new/test/product.test.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="sr-individual" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;sagecompsci&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Team-13-WDD330/team13-sleepoutside.git&quot;,
+    &quot;accountId&quot;: &quot;39aa2b9a-8d03-42ae-847f-b51eed7192de&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="32QSS6bJRBYlSKBkbUHqp6igZ1J" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "rpsc--individual2",
+    "last_opened_file_path": "D:/Main/code/wdd330",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "D:\\Main\\code\\wdd330\\node_modules\\prettier",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Main\code\wdd330\src\product_pages" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="team13-sleepoutside" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="team13-sleepoutside" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
+        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a8dcb8b-4174-477a-af6b-c98f7ec4968c" name="Changes" comment="" />
+      <created>1757351301513</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757351301513</updated>
+      <workItem from="1757351304136" duration="1920000" />
+      <workItem from="1757604622186" duration="553000" />
+      <workItem from="1757605218656" duration="769000" />
+      <workItem from="1757617121053" duration="4525000" />
+      <workItem from="1757621727689" duration="809000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
