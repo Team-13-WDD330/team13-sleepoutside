@@ -3,13 +3,12 @@ import { getLocalStorage } from "./utils.mjs";
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   if (!cartItems) {
-    document.querySelector(".product-list").innerHTML = "<li><p>Your cart is empty!</p></li>";
-  }
-  else {
+    document.querySelector(".product-list").innerHTML =
+      "<li><p>Your cart is empty!</p></li>";
+  } else {
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
   }
-
 }
 
 function cartItemTemplate(item) {
