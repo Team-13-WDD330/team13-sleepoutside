@@ -33,8 +33,6 @@ function removeItem(id){
   setLocalStorage("so-cart", cartItems);
 }
 
-
-
 renderCartContents();
 
 const removeButtons = document.querySelectorAll(".remove");
@@ -44,3 +42,5 @@ removeButtons.forEach((button) => {
     location.reload();
   });
 });
+
+
