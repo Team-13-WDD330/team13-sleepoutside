@@ -241,6 +241,29 @@ button {
   grid-column: 3;
 }
 
+/* Change the mouse when hover over the X */
+.remove:hover {
+  cursor: pointer;
+}
+
+/* Discount prices on the cart page X */
+
+.discount-flag {
+  color: #fff;
+  background: #e53935;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.95em;
+  margin-left: 8px;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -255,6 +278,8 @@ button {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
   }
+
+  
 }
 
 footer {

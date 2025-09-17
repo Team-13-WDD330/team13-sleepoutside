@@ -20,7 +20,7 @@ async function addToCartHandler(e) {
   addProductToCart(productItem);
 }
 
-// commented this as it is duplicated in product details page, not sure which to keep
+// commented this as it is duplicated in product details page, not sure which to keep, if this or the one in product details
 
 // add listener to Add to Cart button
 // document
