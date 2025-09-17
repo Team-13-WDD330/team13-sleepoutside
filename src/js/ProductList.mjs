@@ -10,6 +10,7 @@ function productCardTemplate(product) {
         <p>${product.DescriptionHtmlSimple}</p>
         <p class="price">$${product.FinalPrice}</p>
       </a>
+      <button class="add-to-cart" data-id="${product.Id}">Add to Cart</button>
     </li>
   `;
 }
