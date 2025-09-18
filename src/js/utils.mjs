@@ -37,3 +37,14 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
   const htmlStrings = list.map(templateFn);
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
+
+// update the cart count in the header
+export function updateCartCount() {
+  const cartItems = getLocalStorage("so-cart") || [];
+  const count = cartItems.length;
+  const cartCountElem = document.querySelector(".cart-count");
+  if (cartCountElem) {
+    cartCountElem.textContent = count;
+    cartCountElem.style.display = count > 0 ? "inline" : "none";
+  }
+}
