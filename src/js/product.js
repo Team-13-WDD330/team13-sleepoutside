@@ -1,29 +1,56 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
+
+// create a new ProductData instance for tents
 const dataSource = new ProductData("tents");
+
 function addProductToCart(product) {
   const cartItems = getLocalStorage("so-cart") || [];
   cartItems.push(product);
   setLocalStorage("so-cart", cartItems);
 }
 
-// event handler
-async function addToCartHandler(e) {
-  // only run if the clicked element is a button with .add-to-cart
-  if (e.target && e.target.classList.contains("add-to-cart")) {
-    e.preventDefault();
-    e.stopPropagation();
+// render product details into the DOM
+function renderProductDetails(product) {
+  document.getElementById("brandName").textContent = product.Brand?.Name || "";
+  document.getElementById("productName").textContent = product.Name;
+  document.getElementById("productImage").src = product.Image;
+  document.getElementById("productImage").alt = product.Name;
+  document.getElementById("productPrice").textContent = `$${product.FinalPrice.toFixed(2)}`;
+  document.getElementById("productColor").textContent =
+    product.Colors?.[0]?.ColorName || "N/A";
+  document.getElementById("productDesc").innerHTML =
+    product.DescriptionHtmlSimple;
 
-    const productId = e.target.dataset.id;
-    const product = await dataSource.findProductById(productId);
+  // set product ID on Add to Cart button
+  const addToCartBtn = document.getElementById("addToCart");
+  addToCartBtn.dataset.id = product.Id;
+}
+
+// handle Add to Cart button
+async function addToCartHandler(e) {
+  const productId = e.target.dataset.id;
+  if (!productId) return;
+
+  const product = await dataSource.findProductById(productId);
+  if (product) {
     addProductToCart(product);
   }
 }
 
-// set up event delegation
-document.addEventListener("DOMContentLoaded", () => {
-  const productList = document.querySelector(".product-list"); // parent container of all product cards
-  if (productList) {
-    productList.addEventListener("click", addToCartHandler);
+// initialize the page
+document.addEventListener("DOMContentLoaded", async () => {
+  // get product id from query string ?product=ID
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get("product");
+
+  if (productId) {
+    const product = await dataSource.findProductById(productId);
+    if (product) {
+      renderProductDetails(product);
+    }
   }
+
+  // listen for add to cart
+  document.getElementById("addToCart").addEventListener("click", addToCartHandler);
 });
