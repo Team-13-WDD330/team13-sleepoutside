@@ -24,12 +24,13 @@ function cartItemTemplate(item) {
     <a href="#">
       <h2 class="card__name">${item.Name}</h2>
     </a>
-    <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-    <p class="cart-card__quantity">qty: 1</p>
+    <p class="cart-card__color">${item.Colors?.[0]?.ColorName || "N/A"}</p>
+    <p class="cart-card__quantity">qty: ${item.quantity || 1}</p>
     <p class="cart-card__price">$${item.FinalPrice}</p>
     <button class="remove-item" data-id="${item.Id}">❌</button>
   </li>`;
 }
+
 
 function addRemoveListeners() {
   const removeButtons = document.querySelectorAll(".remove-item");
