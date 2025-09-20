@@ -19,7 +19,7 @@ export default class ProductList {
     this.category = category;
     this.dataSource = dataSource;
     this.listElement = listElement;
-    this.products = []; // store fetched products
+    this.products = []; 
   }
 
   async init() {
@@ -54,7 +54,17 @@ export default class ProductList {
 
   addProductToCart(product) {
     const cartItems = getLocalStorage("so-cart") || [];
-    cartItems.push(product);
+    const existingItem = cartItems.find((item) => item.Id == product.Id);
+
+    if (existingItem) {
+      // If product already exists, increment its quantity
+      existingItem.quantity = (existingItem.quantity || 1) + 1;
+    } else {
+      // Clone product and assign quantity = 1
+      const newProduct = { ...product, quantity: 1 };
+      cartItems.push(newProduct);
+    }
+
     setLocalStorage("so-cart", cartItems);
   }
 }
