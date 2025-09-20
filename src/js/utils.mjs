@@ -35,3 +35,30 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
   const htmlStrings = list.map(templateFn);
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
+
+// Load template from partials folder
+export async function loadTemplate(path) {
+  const res = await fetch(path);
+  return await res.text();
+}
+
+// Render one template into a parent
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.innerHTML = template;
+  if (callback) {
+    callback(data);
+  }
+}
+
+// Load header and footer dynamically
+export async function loadHeaderFooter() {
+  // adjust path depending on where this script runs
+  const headerTemplate = await loadTemplate("/partials/header.html");
+  const footerTemplate = await loadTemplate("/partials/footer.html");
+
+  const headerElement = document.querySelector("#main-header");
+  const footerElement = document.querySelector("#main-footer");
+
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
+}
