@@ -14,8 +14,11 @@ function addProductToCart(product) {
 function renderProductDetails(product) {
   document.getElementById("brandName").textContent = product.Brand?.Name || "";
   document.getElementById("productName").textContent = product.Name;
-  document.getElementById("productImage").src = product.Image;
-  document.getElementById("productImage").alt = product.Name;
+  // ✅ update to use PrimaryLarge image from new API
+  const productImage = document.getElementById("productImage");
+  productImage.src = product.Images?.PrimaryLarge || "";
+  productImage.alt = product.Name;
+
   document.getElementById("productPrice").textContent = `$${product.FinalPrice.toFixed(2)}`;
   document.getElementById("productColor").textContent =
     product.Colors?.[0]?.ColorName || "N/A";
