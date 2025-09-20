@@ -8,7 +8,9 @@ const listElement = document.querySelector(".product-list");
 
 const cartItems = getLocalStorage("so-cart");
 
-const cartList = new ShoppingCart(cartItems, listElement);
+const totalCart = document.querySelector(".cart-total");
+
+const cartList = new ShoppingCart(cartItems, listElement, totalCart);
 
 cartList.init();
 

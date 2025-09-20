@@ -21,9 +21,10 @@ function cartItemTemplate(item) {
 
 export default class ShoppingCart {
 
-    constructor(cartItems, listElement) {
+  constructor(cartItems, listElement, totalCart) {
         this.cartItems = cartItems;
         this.listElement = listElement;
+        this.totalCart = totalCart;
 
     }
 
@@ -41,6 +42,9 @@ export default class ShoppingCart {
         this.listElement.innerHTML = "<li><p>Your cart is empty!</p></li>";
       } else {
         renderListWithTemplate(cartItemTemplate, this.listElement, this.cartItems);
+        const total = this.cartItems.reduce((acc, item) => acc + item.FinalPrice, 0);
+        this.totalCart.innerHTML = `Total: $${total.toFixed(2)}`;
+        document.querySelector(".cart-footer").classList.remove("hide");
       }
       
 
