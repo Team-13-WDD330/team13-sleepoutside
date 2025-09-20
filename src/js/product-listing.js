@@ -1,18 +1,16 @@
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
-import Alert from "./alert.js";
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, getParam } from "./utils.mjs";
 
-// Category hardcoded to "tents" for home page Top Products
-const category = "tents";
+// Load header & footer
+loadHeaderFooter();
+
+// Grab category from the query string
+const category = getParam("category");
+
+// Set up product list
 const dataSource = new ProductData();
 const listElement = document.querySelector(".product-list");
 
 const productList = new ProductList(category, dataSource, listElement);
 productList.init();
-
-// initialize alerts
-const alert = new Alert("json/alerts.json");
-alert.init();
-
-loadHeaderFooter();

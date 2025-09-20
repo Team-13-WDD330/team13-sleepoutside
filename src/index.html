@@ -6,6 +6,7 @@
     <title>Sleep Outside | Home</title>
     <link rel="stylesheet" href="/css/style.css" />
 
+    <!-- JS modules -->
     <script src="js/product.js" type="module"></script>
     <script src="js/ProductList.mjs" type="module"></script>
     <script src="js/main.js" type="module"></script>
@@ -13,7 +14,9 @@
 
   <body>
     <header class="divider" id="main-header"></header>
+
     <main class="divider">
+      <!-- Hero -->
       <div class="hero">
         <img
           src="/images/banner-sm.jpg"
@@ -32,13 +35,47 @@
         </div>
       </div>
 
+      <!-- Categories Section -->
+      <section class="categories">
+        <h2>Shop by Category</h2>
+        <ul class="category-list">
+          <li>
+            <a href="product_listing/index.html?category=tents">
+              <img src="https://byui-cse.github.io/wdd330-ww-course/images/category-tents.svg" alt="Tents" loading="lazy" />
+              <span>Tents</span>
+            </a>
+          </li>
+          <li>
+            <a href="product_listing/index.html?category=backpacks">
+              <img src="https://byui-cse.github.io/wdd330-ww-course/images/category-backpacks.svg" alt="Backpacks" loading="lazy" />
+              <span>Backpacks</span>
+            </a>
+          </li>
+          <li>
+            <a href="product_listing/index.html?category=sleeping-bags">
+              <img src="https://byui-cse.github.io/wdd330-ww-course/images/category-sleepingbags.svg" alt="Sleeping Bags" loading="lazy" />
+              <span>Sleeping Bags</span>
+            </a>
+          </li>
+          <li>
+            <a href="product_listing/index.html?category=hammocks">
+              <img src="https://byui-cse.github.io/wdd330-ww-course/images/category-hammocks.svg" alt="Hammocks" loading="lazy" />
+              <span>Hammocks</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Top Products -->
       <section class="products">
         <h2>Top Products</h2>
         <ul class="product-list"></ul>
       </section>
     </main>
+
     <footer id="main-footer"></footer>
 
+    <!-- Scripts -->
     <script type="module" src="js/main.js"></script>
     <script type="module" src="js/product.js"></script>
   </body>

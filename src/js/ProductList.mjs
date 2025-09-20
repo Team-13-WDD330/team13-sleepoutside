@@ -5,7 +5,7 @@ function productCardTemplate(product) {
   return `
     <li class="product-card">
       <a href="../product_pages/index.html?product=${product.Id}">
-        <img src="${product.Image}" alt="${product.NameWithoutBrand}" loading="lazy" />
+        <img src="${product.Images?.PrimaryMedium || ''}" alt="${product.Name}" loading="lazy" />
         <h2>${product.Name}</h2>
         <p class="price">$${product.FinalPrice.toFixed(2)}</p>
       </a>
@@ -23,7 +23,8 @@ export default class ProductList {
   }
 
   async init() {
-    this.products = await this.dataSource.getData();
+    // ✅ now filtered by category
+    this.products = await this.dataSource.getData(this.category);
     this.renderList(this.products);
     this.addToCartListener(); // activate cart listener
   }
@@ -42,7 +43,8 @@ export default class ProductList {
     this.listElement.addEventListener("click", (e) => {
       if (e.target.classList.contains("add-to-cart")) {
         const productId = e.target.dataset.id;
-        const product = this.products.find((item) => item.Id === productId);
+        // product.Id might be a number, dataset gives string → convert
+        const product = this.products.find((item) => item.Id == productId);
         if (product) {
           this.addProductToCart(product);
         }
