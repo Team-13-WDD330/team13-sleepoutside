@@ -6,18 +6,19 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Sleep Outside | Cart</title>
+    <title>Sleep Outside | Cedar Ridge Rimrock 2-person tent</title>
 
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 
-    <script src="../js/cart.js" type="module"></script>
+    <script src="../js/product.js" type="module"></script>
+
   </head>
 
   <body>
     <header class="divider">
       <div class="logo">
         <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
-        <a href="/index.html"> Sleep<span class="highlight">Outside</span></a>
+        <a href="../index.html"> Sleep<span class="highlight">Outside</span></a>
       </div>
 
       <div class="cart">
@@ -55,15 +56,38 @@
     </header>
 
     <main class="divider">
-      <section class="products">
-        <h2>My Cart</h2>
-        <ul class="product-list"></ul>
+      <section class="product-detail">
+        <!-- Product brand -->
+        <h3 id="brandName"></h3>
+
+        <!-- Product name -->
+        <h2 id="productName" class="divider"></h2>
+
+        <!-- Product image -->
+        <img
+          class="divider"
+          src=""
+          alt="product image"
+          id="productImage"
+          loading="lazy"
+        />
+
+        <!-- Product price -->
+        <p id="productPrice" class="product-card__price"></p>
+
+        <!-- Product color -->
+        <p id="productColor" class="product__color"></p>
+
+        <!-- Product description -->
+        <p id="productDesc" class="product__description"></p>
+
+        <!-- Add to cart button -->
+        <div class="product-detail__add">
+          <button id="addToCart" data-id="productId">Add to Cart</button>
+        </div>
       </section>
     </main>
 
-    <footer>
-      &copy;2025 ⛺ SleepOutside ⛺ WDD 330 ⛺ BYU-Idaho for BYU-Pathway
-      Worldwide Online
-    </footer>
+    <footer>&copy;NOT a real business</footer>
   </body>
 </html>

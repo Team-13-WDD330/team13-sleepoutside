@@ -1,17 +1,20 @@
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
-import Alert from "./alert";
-import { updateCartCount } from "./utils.mjs";
+import Alert from "./alert.js";
+import { loadHeaderFooter } from "./utils.mjs";
 
-const dataSource = new ProductData("tents");
+// Category hardcoded to "tents" for home page Top Products
+const category = "tents";
+const dataSource = new ProductData();
 const listElement = document.querySelector(".product-list");
 
-const productList = new ProductList("Tents", dataSource, listElement);
+const productList = new ProductList(category, dataSource, listElement);
 productList.init();
 
 // initialize alerts
-const alert = new Alert("json/alerts.json"); // adjust path if needed
+const alert = new Alert("json/alerts.json");
 alert.init();
 
-// update cart count
-updateCartCount();
+loadHeaderFooter();
+
+console.log("BaseURL from env:", import.meta.env.VITE_SERVER_URL);

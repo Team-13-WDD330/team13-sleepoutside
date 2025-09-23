@@ -22,12 +22,10 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
-// get the product id from the query string
-export function getParam(param) {
+export function getParam(param){
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get(param);
-  return product
+  return urlParams.get(param);
 }
 
 export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false) {
@@ -38,13 +36,29 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 
-// update the cart count in the header
-export function updateCartCount() {
-  const cartItems = getLocalStorage("so-cart") || [];
-  const count = cartItems.length;
-  const cartCountElem = document.querySelector(".cart-count");
-  if (cartCountElem) {
-    cartCountElem.textContent = count;
-    cartCountElem.style.display = count > 0 ? "inline" : "none";
+// Load template from partials folder
+export async function loadTemplate(path) {
+  const res = await fetch(path);
+  return await res.text();
+}
+
+// Render one template into a parent
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.innerHTML = template;
+  if (callback) {
+    callback(data);
   }
+}
+
+// Load header and footer dynamically
+export async function loadHeaderFooter() {
+  // adjust path depending on where this script runs
+  const headerTemplate = await loadTemplate("/partials/header.html");
+  const footerTemplate = await loadTemplate("/partials/footer.html");
+
+  const headerElement = document.querySelector("#main-header");
+  const footerElement = document.querySelector("#main-footer");
+
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
 }
