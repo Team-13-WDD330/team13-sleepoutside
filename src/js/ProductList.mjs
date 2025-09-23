@@ -1,15 +1,14 @@
-import { renderListWithTemplate, getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { renderListWithTemplate } from "./utils.mjs";
 
-// template function
 function productCardTemplate(product) {
   return `
     <li class="product-card">
-      <a href="../product_pages/index.html?product=${product.Id}">
-        <img src="${product.Images?.PrimaryMedium || ''}" alt="${product.Name}" loading="lazy" />
-        <h2>${product.Name}</h2>
-        <p class="price">$${product.FinalPrice.toFixed(2)}</p>
+      <a href="/product_pages/?product=${product.Id}">
+        <img src="${product.Images.PrimaryMedium}" alt="${product.Name}">
+        <h3>${product.Brand.Name}</h3>
+        <p>${product.NameWithoutBrand}</p>
+        <p class="product-card__price">$${product.FinalPrice}</p>
       </a>
-      <button class="add-to-cart" data-id="${product.Id}">Add to Cart</button>
     </li>
   `;
 }
@@ -19,52 +18,39 @@ export default class ProductList {
     this.category = category;
     this.dataSource = dataSource;
     this.listElement = listElement;
-    this.products = []; 
+    this.originalList = []; // Store the original unsorted list
   }
 
   async init() {
-    // ✅ now filtered by category
-    this.products = await this.dataSource.getData(this.category);
-    this.renderList(this.products);
-    this.addToCartListener(); // activate cart listener
+    this.originalList = await this.dataSource.getData(this.category);
+    this.renderList(this.originalList);
+    document.querySelector(".title").textContent = this.category;
+
+    // Add event listeners for sorting buttons Mateus Nunes Individual Assignment
+    const sortByNameButton = document.querySelector("#sort-by-name");
+    const sortByPriceButton = document.querySelector("#sort-by-price");
+
+    if (sortByNameButton) {
+      sortByNameButton.addEventListener("click", () => this.sortList("name"));
+    }
+    if (sortByPriceButton) {
+      sortByPriceButton.addEventListener("click", () => this.sortList("price"));
+    }
+  }
+
+  sortList(sortKey) {
+    let sortedList = [...this.originalList]; // Create a copy to sort
+
+    if (sortKey === "name") {
+      sortedList.sort((a, b) => a.NameWithoutBrand.localeCompare(b.NameWithoutBrand));
+    } else if (sortKey === "price") {
+      sortedList.sort((a, b) => a.FinalPrice - b.FinalPrice);
+    }
+
+    this.renderList(sortedList);
   }
 
   renderList(list) {
-    renderListWithTemplate(
-      productCardTemplate,
-      this.listElement,
-      list,
-      "afterbegin",
-      true
-    );
-  }
-
-  addToCartListener() {
-    this.listElement.addEventListener("click", (e) => {
-      if (e.target.classList.contains("add-to-cart")) {
-        const productId = e.target.dataset.id;
-        // product.Id might be a number, dataset gives string → convert
-        const product = this.products.find((item) => item.Id == productId);
-        if (product) {
-          this.addProductToCart(product);
-        }
-      }
-    });
-  }
-
-  addProductToCart(product) {
-    const cartItems = getLocalStorage("so-cart") || [];
-    const existingItem = cartItems.find((item) => item.Id == product.Id);
-
-    if (existingItem) {
-      // If product already exists, increment its quantity
-      existingItem.quantity = (existingItem.quantity || 1) + 1;
-    } else {
-      // Clone product and assign quantity = 1
-      const newProduct = { ...product, quantity: 1 };
-      cartItems.push(newProduct);
-    }
-
-    setLocalStorage("so-cart", cartItems);
+    renderListWithTemplate(productCardTemplate, this.listElement, list, "afterbegin", true);
   }
 }
