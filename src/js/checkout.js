@@ -16,6 +16,7 @@ document
 
 
 document.getElementById('checkoutForm').addEventListener('submit', function (e) {
+
     const inputs = this.querySelectorAll('input');
     for (let input of inputs) {
         if (!input.value.trim()) {
@@ -24,6 +25,9 @@ document.getElementById('checkoutForm').addEventListener('submit', function (e) 
             return;
         }
     }
+    console.log('All fields are filled. Proceeding to checkout...');
+    e.preventDefault();
+    order.checkout();
 });
 
 
