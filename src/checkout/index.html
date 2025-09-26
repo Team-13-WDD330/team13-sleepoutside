@@ -8,8 +8,8 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
-     <script src="../js/checkout.js" type="module"></script>
+    <link rel="stylesheet" href="/css/style.css" />
+     <script src="../js/checkout.js" type="module"></script>    
   </head>
 
   <body>
@@ -20,6 +20,38 @@
         <h2>Review & Place your Order</h2>
       </section>
     </main>
+    <h1>Checkout</h1>
+    <div class="container">
+      <form id="checkoutForm">
+        <h2>Customer Information</h2>
+        <label>First Name <input type="text" name="firstName" required></label>
+        <label>Last Name <input type="text" name="lastName" required></label>
+    
+        <h2>Address</h2>
+        <label>Street Address <input type="text" name="street" required></label>
+        <label>City <input type="text" name="city" required></label>
+        <label>State <input type="text" name="state" required></label>
+        <label>Zip Code <input type="text" name="zip" id="zip" required></label>
+    
+        <h2>Payment</h2>
+        <label>Credit Card Number <input type="text" name="cardNumber" required></label>
+        <label>Expiration Date <input type="text" name="expDate" placeholder="MM/YY" required></label>
+        <label>Security Code <input type="text" name="securityCode" required></label>
+    
+         
+        <button type="submit">Checkout</button>
+      </form>
+    
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-item">Items: <span id="summaryItems"></span></div>
+        <div class="summary-item">Subtotal: <span id="summarySubtotal"></span></div>
+        <div class="summary-item">Tax: <span id="summaryTax"></span></div>
+        <div class="summary-item">Shipping Estimate: <span id="summaryShipping"></span></div>
+        <hr>
+        <div class="summary-item"><strong>Order Total: <span id="summaryTotal"></span></strong></div>
+      </div>
+    </div>
 
     <footer id="main-footer"></footer>
   </body>

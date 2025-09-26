@@ -281,8 +281,67 @@ button {
   display: none;
 }
 
+/*Checkout Page*/
 
 
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background-color: #f9f9f9;
+} */
+
+
+.container {
+  display: flex;
+  gap: 40px;
+}
+ form {
+   flex: 2;
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .order-summary {
+   flex: 1;
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ label {
+   display: block;
+   margin-top: 10px;
+ }
+
+ input {
+   width: 100%;
+   padding: 8px;
+   margin-top: 4px;
+   box-sizing: border-box;
+ }
+form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0078D4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+.summary-item {
+   margin: 10px 0;
+}
+
+
+/*End Checkout Page*/
 
 @media screen and (min-width: 500px) {
   body {
