@@ -257,6 +257,62 @@ button {
   }
 }
 
+/* Categories Section */
+.categories {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.categories h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.category-list {
+  list-style: none;           /* remove bullets */
+  padding: 0;
+  margin: 0;
+  display: flex;              /* arrange horizontally */
+  flex-wrap: wrap;            /* wrap on small screens */
+  justify-content: center;    /* center horizontally */
+  gap: 1.5rem;                /* spacing between items */
+}
+
+.category-list li {
+  flex: 0 1 150px;            /* fixed min-width for items */
+}
+
+.category-list a {
+  display: flex;
+  flex-direction: column;     /* stack image + text */
+  align-items: center;
+  text-decoration: none;      /* remove underline */
+  color: inherit;             /* keep text color */
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-list a:hover {
+  transform: translateY(-5px); /* lift on hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.categories img {
+  width: 100px;   /* controlled image size */
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.category-list span {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+
 footer {
   font-size: var(--small-font);
   padding: 1em;
