@@ -26,7 +26,7 @@ function packageItems(items) {
             id: item.Id,
             price: item.FinalPrice,
             name: item.Name,
-            quantity: 1,
+            quantity: item.Quantity || 1,
         };
     });
     return simplifiedItems;
@@ -53,21 +53,21 @@ export default class CheckoutProcess {
     }
 
     calculateItemSummary() {
-
         const items = document.querySelector(`#summaryItems`);
         const itemTotal = document.querySelector(`#summarySubtotal`);
-        // calculate and display the total dollar amount of the items in the cart, and the number of items.
-        let qte_items = this.list.length;
-        this.itemTotal = this.list.reduce((acc, item) => acc + item.FinalPrice, 0);
+        // Total of items, considering quantity
+        this.qty_items = this.list.reduce((acc, item) => acc + (item.Quantity || 1), 0);
+        // Total price of items
+        this.itemTotal = this.list.reduce((acc, item) => acc + item.FinalPrice * (item.Quantity || 1), 0);
 
         itemTotal.innerText = `$${this.itemTotal.toFixed(2)}`;
-        items.innerText = `${qte_items}`;
+        items.innerText = `${this.qty_items}`;
     }
 
     calculateOrderTotal() {
         // calculate the tax and shipping amounts. Add those to the cart total to figure out the order total
         this.tax = (this.itemTotal * 0.06);
-        this.shipping = 10 + (this.list.length - 1) * 2;
+        this.shipping = 10 + (this.qty_items - 1) * 2;
         this.orderTotal = (parseFloat(this.itemTotal) + parseFloat(this.tax) + parseFloat(this.shipping));
 
         // display the totals.
