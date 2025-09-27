@@ -25,9 +25,19 @@ document.getElementById('checkoutForm').addEventListener('submit', function (e) 
             return;
         }
     }
-    console.log('All fields are filled. Proceeding to checkout...');
+    console.log('All fields are filled...');
+
     e.preventDefault();
-    order.checkout();
+
+    const myForm = document.forms[0];
+    const chk_status = myForm.checkValidity();
+    myForm.reportValidity();
+    if (chk_status) {
+        
+        order.checkout();
+    }
+
+    
 });
 
 

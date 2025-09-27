@@ -38,7 +38,7 @@ export default class ShoppingCart {
 
     renderCartContents() {
 
-      if (!this.cartItems) {
+      if (!this.cartItems || this.cartItems.length === 0) {
         this.listElement.innerHTML = "<li><p>Your cart is empty!</p></li>";
       } else {
         renderListWithTemplate(cartItemTemplate, this.listElement, this.cartItems);

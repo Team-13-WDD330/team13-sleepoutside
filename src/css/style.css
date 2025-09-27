@@ -340,6 +340,19 @@ button:hover {
    margin: 10px 0;
 }
 
+/* alert styles */
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  background-color: var(--primary-color);
+  border: 1px solid darkorange;
+}
+
+.alert>p {
+  margin: 0;
+}
 
 /*End Checkout Page*/
 
