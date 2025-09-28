@@ -10,6 +10,7 @@ function productCardTemplate(product) {
         <p class="price">$${product.FinalPrice.toFixed(2)}</p>
       </a>
       <button class="add-to-cart" data-id="${product.Id}">Add to Cart</button>
+      <button class="quick-view" data-id="${product.Id}">Quick View</button>
     </li>
   `;
 }
@@ -19,14 +20,14 @@ export default class ProductList {
     this.category = category;
     this.dataSource = dataSource;
     this.listElement = listElement;
-    this.products = []; 
+    this.products = [];
   }
 
   async init() {
     // ✅ now filtered by category
     this.products = await this.dataSource.getData(this.category);
     this.renderList(this.products);
-    this.addToCartListener(); // activate cart listener
+    this.addEventListeners(); // ✅ handles both cart + quick view
   }
 
   renderList(list) {
@@ -39,15 +40,20 @@ export default class ProductList {
     );
   }
 
-  addToCartListener() {
+  addEventListeners() {
     this.listElement.addEventListener("click", (e) => {
+      const productId = e.target.dataset.id;
+
+      // Add to cart
       if (e.target.classList.contains("add-to-cart")) {
-        const productId = e.target.dataset.id;
-        // product.Id might be a number, dataset gives string → convert
         const product = this.products.find((item) => item.Id == productId);
-        if (product) {
-          this.addProductToCart(product);
-        }
+        if (product) this.addProductToCart(product);
+      }
+
+      // Quick view
+      if (e.target.classList.contains("quick-view")) {
+        const product = this.products.find((item) => item.Id == productId);
+        if (product) this.openQuickView(product);
       }
     });
   }
@@ -57,14 +63,36 @@ export default class ProductList {
     const existingItem = cartItems.find((item) => item.Id == product.Id);
 
     if (existingItem) {
-      // If product already exists, increment its quantity
       existingItem.quantity = (existingItem.quantity || 1) + 1;
     } else {
-      // Clone product and assign quantity = 1
       const newProduct = { ...product, quantity: 1 };
       cartItems.push(newProduct);
     }
 
     setLocalStorage("so-cart", cartItems);
+  }
+
+  openQuickView(product) {
+    const modal = document.getElementById("quickViewModal");
+    const modalBody = modal.querySelector(".modal-body");
+
+    modalBody.innerHTML = `
+      <h2>${product.Name}</h2>
+      <img src="${product.Images?.PrimaryLarge || ''}" alt="${product.Name}" />
+      <p>${product.DescriptionHtmlSimple || "No description available."}</p>
+      <p><strong>Price:</strong> $${product.FinalPrice.toFixed(2)}</p>
+    `;
+
+    modal.classList.add("open");
+
+    // Close button
+    modal.querySelector(".close").addEventListener("click", () => {
+      modal.classList.remove("open");
+    });
+
+    // Close when clicking outside
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.classList.remove("open");
+    });
   }
 }
