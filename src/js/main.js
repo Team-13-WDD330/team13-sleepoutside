@@ -15,4 +15,8 @@ productList.init();
 const alert = new Alert("json/alerts.json");
 alert.init();
 
+document.querySelector("#quickViewModal .close-btn").addEventListener("click", () => {
+  document.querySelector("#quickViewModal").classList.remove("open");
+});
+
 loadHeaderFooter();
