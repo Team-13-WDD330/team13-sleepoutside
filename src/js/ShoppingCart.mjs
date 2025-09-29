@@ -1,7 +1,7 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
 
 function cartItemTemplate(item) {
-    const newItem = `<li class="cart-card divider">
+  const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
       src="${item.Images.PrimaryMedium}"
@@ -16,39 +16,30 @@ function cartItemTemplate(item) {
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
 
-    return newItem;
+  return newItem;
 }
 
 export default class ShoppingCart {
-
-  constructor(cartItems, listElement, totalCart) {
-        this.cartItems = cartItems;
-        this.listElement = listElement;
-        this.totalCart = totalCart;
-
-    }
-
-    async init() {
-
-        this.renderCartContents();
-
-    }
-
-
-
-    renderCartContents() {
-
-      if (!this.cartItems || this.cartItems.length === 0) {
-        this.listElement.innerHTML = "<li><p>Your cart is empty!</p></li>";
-      } else {
-        renderListWithTemplate(cartItemTemplate, this.listElement, this.cartItems);
-        const total = this.cartItems.reduce((acc, item) => acc + item.FinalPrice, 0);
-        this.totalCart.innerHTML = `Total: $${total.toFixed(2)}`;
-        document.querySelector(".cart-footer").classList.remove("hide");
-      }
-      
-
-    }
+  constructor(key, parentSelector) {
+    this.key = key;
+    this.parentSelector = parentSelector;
+    this.total = 0;
+  }
+  async init() {
+    const list = getLocalStorage(this.key);
+    this.calculateListTotal(list);
+    this.renderCartContents(list);
+  }
+  calculateListTotal(list) {
+    const amounts = list.map((item) => item.FinalPrice);
+    this.total = amounts.reduce((sum, item) => sum + item);
+  }
+  renderCartContents() {
+    const cartItems = getLocalStorage(this.key);
+    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+    document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
+    document.querySelector(".list-total").innerText += ` $${this.total}`;
+  }
 }
 
 

@@ -3,41 +3,16 @@ import CheckoutProcess from "./CheckoutProcess.mjs";
 
 loadHeaderFooter();
 
+const myCheckout = new CheckoutProcess("so-cart", ".checkout-summary");
+myCheckout.init();
 
-const order = new CheckoutProcess("so-cart", "order-summary");
-
-order.init();
-
-// Add event listeners to fire calculateOrderTotal when the user changes the zip code
 document
-    .querySelector("#zip")
-    .addEventListener("blur", order.calculateOrderTotal.bind(order));
+  .querySelector("#zip")
+  .addEventListener("blur", myCheckout.calculateOrdertotal.bind(myCheckout));
+// listening for click on the button
+document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
+  e.preventDefault();
 
-
-
-document.getElementById('checkoutForm').addEventListener('submit', function (e) {
-
-    const inputs = this.querySelectorAll('input');
-    for (let input of inputs) {
-        if (!input.value.trim()) {
-            alert('Please fill out all fields before submitting.');
-            e.preventDefault();
-            return;
-        }
-    }
-    console.log('All fields are filled...');
-
-    e.preventDefault();
-
-    const myForm = document.forms[0];
-    const chk_status = myForm.checkValidity();
-    myForm.reportValidity();
-    if (chk_status) {
-        
-        order.checkout();
-    }
-
-    
+  myCheckout.checkout();
 });
-
 
