@@ -299,6 +299,41 @@ button {
   margin: 0;
 }
 
+.newsletter-signup {
+  background-color: #f4f4f4;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  border-radius: 8px;
+}
+
+.newsletter-form {
+  margin-top: 1rem;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 0.5rem;
+  width: 250px;
+  max-width: 80%;
+  margin-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.newsletter-form button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.newsletter-form button:hover {
+  background-color: #005c3c;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
